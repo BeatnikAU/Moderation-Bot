@@ -1,24 +1,30 @@
 {
-    "name": "Moderation-Bot",
-    "version": "1.0.0",
-    "description": "A Discord bot for automated moderation functions. Written for use on discord.gg/rlo",
-    "keywords": ["discord", "bot", "moderation", "moderator", "rlo"],
-    "homepage": "https://github.com/BeatnikAU/Moderation-Bot/",
-    "bugs": "https://github.com/BeatnikAU/Moderation-Bot/issues/",
-    "private": true,
-    "author": "BeatnikAU (https://github.com/BeatnikAU/)",
-    "main": "src/index.js",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/BeatnikAU/Moderation-Bot.git"
-    },
-    "dependencies": {
-        "discord.js": "11.0.0"
-    },
-    "engines": {
-        "node": ">=6.0.0"
-    },
-    "scripts": {
-        "start": "node src/index.js"
-    }
+  "name": "Moderation-Bot",
+  "version": "1.0.0",
+  "description": "A Discord bot for automated moderation functions. Written for use on discord.gg/rlo",
+  "keywords": [
+    "discord",
+    "bot",
+    "moderation",
+    "moderator",
+    "rlo"
+  ],
+  "homepage": "https://github.com/BeatnikAU/Moderation-Bot/",
+  "bugs": "https://github.com/BeatnikAU/Moderation-Bot/issues/",
+  "private": true,
+  "author": "BeatnikAU (https://github.com/BeatnikAU/)",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BeatnikAU/Moderation-Bot.git"
+  },
+  "dependencies": {
+    "discord.js": "^11.0.0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  }
 }
