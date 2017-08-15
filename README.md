@@ -7,13 +7,14 @@ A Discord bot for automating moderation tasks. Written for use on discord.gg/rlo
 
 - Adds approved reactions to links posted in the Showcase channel
 - Removes emojis that are unwanted in the Showcase channel
+- Deletes the 'BotMuted' role hourly to clear automated mutes
+- Adds new members to 'New Member' role when they use the '.iam member' command to begin using the server and removes the users from this role after 1 hour
+- Implemented link posting restrictions in #general to users in the 'New Member' role
 
 
 ## Planned Features
 
 - [ ] Answer known question strings to direct users to appropriate channels for information
-- [ ] Delete Nadeko-Mute role or remove all members from the role at regular intervals
-- [ ] Add new members to role 'New Member' for a short period of time before removing the user from the role
 - [ ] Create command for approved list of users to schedule announcements
 
 
