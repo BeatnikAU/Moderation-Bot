@@ -10,11 +10,13 @@ A Discord bot for automating moderation tasks. Written for use on discord.gg/rlo
 - Deletes the 'BotMuted' role hourly to clear automated mutes
 - Adds new members to 'New Member' role when they use the '.iam member' command to begin using the server and removes the users from this role after 1 hour
 - Implemented link posting restrictions in #general to users in the 'New Member' role
+- Delete messages from #welcome channel that do not match the .iam command
 
 
 ## Planned Features
 
 - [ ] Answer known question strings to direct users to appropriate channels for information
+- [ ] Create alternate reactions in #showcase channel to try and match types of videos (eg. LUL reaction for a link with 'lol' or 'hah' in the message)
 - [ ] Create command for approved list of users to schedule announcements
 
 

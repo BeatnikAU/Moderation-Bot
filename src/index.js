@@ -11,11 +11,10 @@ client.on(`message`, message => {
   if (message.channel.type === `text` && message.guild.id === CONFIG.guild && message.channel.id === CONFIG.reactionChannel) {
     var content = message.content;
     if (/http:/i.test(content) || /https:/i.test(content)) {
-      message.react(":PogChamp:230268174526840832");
-      //message.react(":PogChamp:282525692615327745");
-      message.react("👍");
-      message.react("❤");
-      message.react("😍");
+      message.react(":PogChamp:230268174526840832")
+        .then(message.react(":Kreygasm:350549072781901827"))
+        .then(message.react(":CoolStoryBob:350549041911824385"));
+      //message.react(":ResidentSleeper:350549084077162498");
     }
 
     if (/ResidentSleeper/.test(content) || /👎/.test(content) || /FailFish/.test(content)) {
@@ -48,21 +47,47 @@ client.on(`message`, message => {
 */
   //Welcome channel (new member) functions
   if (message.channel.type === `text` && message.guild.id === CONFIG.guild && message.channel.id === CONFIG.welcomeChannel) {
+
     var content = message.content;
-    if (/\.iam member/i.test(content)) {
-      var member = message.author.id;
-      var server = client.guilds.get(CONFIG.guild);
-      var role = server.roles.find('name', 'New Member').id;
-      if (role != null) {
-        server.members.get(member).addRole(role);
-        setTimeout(function() {
-          server.members.get(member).removeRole(role);
-        }, 3600000);
+    var author = message.author;
+    var server = client.guilds.get(CONFIG.guild);
+    var member = server.members.get(author.id);
+    var staff = server.roles.find('name', 'RLO-Staff');
+    var mod = server.roles.find('name', 'Moderators');
+
+    if (staff != null && mod != null) {
+      if (member.roles.get(staff.id) == null && member.roles.get(mod.id) == null) {
+
+        if (/\.iam member/i.test(content) && message.author != client.user) {
+          var newMember = server.roles.find('name', 'New Member').id;
+          if (newMember != null) {
+            server.members.get(author.id).addRole(newMember);
+            setTimeout(function() {
+              server.members.get(author.id).removeRole(newMember);
+            }, 3600000);
+          }
+        }
+
+        else if (author == client.user) {
+          setTimeout(function() {
+            message.delete()
+            .catch(console.error);
+          }, 10000);
+        }
+
+        else {
+          message.reply(" only the following command can be used in this channel ```.iam member```")
+          message.delete()
+          .then(msg => console.log(`Deleted message in #Welcome from ${author} - ${author.username} \n    ${content}\n`))
+          .catch(console.error);
+        }
       }
     }
-  }
 
 });
+
+//Clear New Members on startup so that noone is stuck as New Member
+
 
 //Remove BotMuted role hourly
 setInterval( function() {
