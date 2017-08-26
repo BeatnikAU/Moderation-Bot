@@ -11,15 +11,23 @@ client.on(`message`, message => {
   if (message.channel.type === `text` && message.guild.id === CONFIG.guild && message.channel.id === CONFIG.reactionChannel) {
     var content = message.content;
     if (/http:/i.test(content) || /https:/i.test(content)) {
+      /* for testing
+      message.react("😍")
+        .then(message.react("❤"))
+        .then(message.react("👍"))
+        .catch(console.error);
+      */
+
       message.react(":PogChamp:230268174526840832")
         .then(message.react(":Kreygasm:350549072781901827"))
-        .then(message.react(":CoolStoryBob:350549041911824385"));
+        .then(message.react(":CoolStoryBob:350549041911824385"))
+        .catch(console.error);
       //message.react(":ResidentSleeper:350549084077162498");
     }
 
-    if (/ResidentSleeper/.test(content) || /👎/.test(content) || /FailFish/.test(content)) {
+    if (/ResidentSleeper/.test(content)) {
       message.delete()
-        .then(msg => console.log(`Deleted message from ${message.author} - ${message.author.username}`))
+        .then(msg => console.log(`Deleted ResidentSleeper message from ${message.author} - ${message.author.username}`))
         .catch(console.error);
     }
   }
@@ -33,8 +41,8 @@ client.on(`message`, message => {
       //New Member restrictions
       if (newMember != null && /http/i.test(content)) {
         message.delete()
-          .then(msg => console.log(`Deleted message from New Member ${author} - ${author.username}`))
-          .then(message.reply(`sorry. New members cannot post links in #general for the first hour after joining.`))
+          .then(msg => console.log(`Deleted http message from New Member ${author} - ${author.username}`))
+          .then(message.reply(`sorry. New members cannot post links in #general for the first half hour after joining.`))
           .catch(console.error);
       }
   }
@@ -64,7 +72,7 @@ client.on(`message`, message => {
             server.members.get(author.id).addRole(newMember);
             setTimeout(function() {
               server.members.get(author.id).removeRole(newMember);
-            }, 3600000);
+            }, 1800000);
           }
         }
 
@@ -83,7 +91,7 @@ client.on(`message`, message => {
         }
       }
     }
-
+  }
 });
 
 //Clear New Members on startup so that noone is stuck as New Member
