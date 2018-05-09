@@ -1,11 +1,11 @@
 {
-    "token": "MzM0MjgxMjkxNzc0MDMzOTIy.DEY8OQ._1pppl5GJJbix3T2Ve-lIoiwH2A",
-    "guild": "152701010249252864",
-    "reactionChannel": "283860254855397377",
+    "token": "",
+    "guild": "",
+    "reactionChannel": "",
     "planAnnounceChannel": "",
     "tournAnnounce": "",
     "tournUpdate": "",
-    "generalChannel": "152701010249252864",
-    "welcomeChannel": "333797695661670410",
-    "admins": ["84849433597972480"]
+    "generalChannel": "",
+    "welcomeChannel": "",
+    "admins": [""]
 }
